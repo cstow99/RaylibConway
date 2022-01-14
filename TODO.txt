@@ -1,0 +1,1 @@
+* Rewrite CMakeLists files eventually so it'll compile on other platforms easily.
