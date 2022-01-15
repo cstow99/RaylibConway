@@ -44,3 +44,7 @@ if(WIN32)
 		target_link_libraries(${PROJECT_NAME} PUBLIC opengl32.lib gdi32.lib winmm.lib)
 	endif(MSVC)
 endif(WIN32)
+
+if(UNIX)
+	target_link_libraries(${PROJECT_NAME} PUBLIC raylib GL m pthread dl rt X11)
+endif(UNIX)
