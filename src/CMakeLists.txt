@@ -13,13 +13,13 @@ set(SRC_HXX_FILES
 set(SRC_FILES ${SRC_CXX_FILES} ${SRC_HXX_FILES})
 add_executable(${PROJECT_NAME} ${SRC_FILES})
 
-if(WIN32 AND MSVC)
-	target_include_directories(${PROJECT_NAME} PUBLIC "${RAYLIB_DIR}/${RAYLIB_INCLUDE_DIR}")
-	target_link_directories(${PROJECT_NAME} PUBLIC "${RAYLIB_DIR}/${RAYLIB_LIBRARY_DIR}")
-else()
+#if(WIN32 AND MSVC)
+#	target_include_directories(${PROJECT_NAME} PUBLIC "${RAYLIB_DIR}/${RAYLIB_INCLUDE_DIR}")
+#	target_link_directories(${PROJECT_NAME} PUBLIC "${RAYLIB_DIR}/${RAYLIB_LIBRARY_DIR}")
+#else()
 	target_include_directories(${PROJECT_NAME} PUBLIC "${RAYLIB_INCLUDE_DIR}")
 	target_link_directories(${PROJECT_NAME} PUBLIC "${RAYLIB_LIBRARY_DIR}")
-endif(WIN32 AND MSVC)
+#endif(WIN32 AND MSVC)
 
 if(${STATIC_BUILD})
 	if(MINGW OR UNIX)

@@ -1,13 +1,16 @@
 cmake_minimum_required(VERSION 3.2)
 set(PROJECT_NAME ConwayRaylib)
 
-option(STATIC_BUILD "Statically link Raylib into ${PROJECT_NAME} (No .so/.dll files required)\n(MinGW Only), compiling statically on Linux/other Unix-like systems may cause problems" OFF)
+if(MINGW OR UNIX)
+	option(STATIC_BUILD "Statically link Raylib into ${PROJECT_NAME} (No .so/.dll files required)\n(MinGW Only), compiling statically on Linux/other Unix-like systems may cause problems" OFF)
+endif(MINGW OR UNIX)
 
-if(WIN32)
-	set(RAYLIB_DIR "${RAYLIB_DIR}" CACHE PATH "Where Raylib is located")
-ENDIF(WIN32)
+# No longer necessary
+#if(WIN32)
+#	set(RAYLIB_DIR "${RAYLIB_DIR}" CACHE PATH "Where Raylib is located")
+#ENDIF(WIN32)
 
-# Not neccessarily needed since you can specify a different directory where the raylib library is located.
+# Not necessarily needed since you can specify a different directory where the raylib library is located.
 # However, this still presumes that the name of the file is called libraylib/raylib.lib so keep that in mind.
 
 #if(${STATIC_BUILD} AND WIN32 AND MSVC)
