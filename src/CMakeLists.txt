@@ -22,9 +22,7 @@ add_executable(${PROJECT_NAME} ${SRC_FILES})
 #endif(WIN32 AND MSVC)
 
 if(${STATIC_BUILD})
-	if(MINGW OR UNIX)
-		set(CMAKE_EXE_LINKER_FLAGS -static)
-	endif(MINGW OR UNIX)
+	set(CMAKE_EXE_LINKER_FLAGS -static)
 endif(${STATIC_BUILD})
 
 if(WIN32)
