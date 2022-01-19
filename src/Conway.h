@@ -22,7 +22,7 @@ public:
 
 private:
 	bool _paused, _nextFrame; // nextFrame variable is only used when simulation is paused
-	const int _width = 1280, _height = 1024; // Change the width and height here. Must be divisible by 8! (e.g. 640x480)
+	const int _width = 1024, _height = 768; // Change the width and height here. Must be divisible by 8! (e.g. 640x480)
 	void init(), quit(), startAppLoop(), update(), draw(), drawPauseIcon();
 
 	raylib::Window _window;
