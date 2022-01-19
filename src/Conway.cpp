@@ -1,15 +1,19 @@
 #include "Conway.h"
+#include <string>
 
 int main() {
-	Conway session;
+	Conway conwayGameOfLife;
 	return 0;
 }
+
+const std::string pausedText = "PAUSED";
 
 Conway::Conway()
 	: _window(_width, _height, "Conway's Game of Life"),
 
 	_grid({ 0,0 }, { ((int)_window.GetSize().GetX() / 8), ((int)_window.GetSize().GetY() / 8) }, 8, 1),
-	_gol(_grid, {_grid.GetGridSize().GetX(), _grid.GetGridSize().GetY()})
+	_gol(_grid, {_grid.GetGridSize().GetX(), _grid.GetGridSize().GetY()}),
+	_helpMenu(_window), _paused(false), _nextFrame(false)
 
 {
 	init();
@@ -41,24 +45,50 @@ void Conway::startAppLoop() { // This is where the app's loop is stored. Execute
 }
 
 void Conway::update() {
-	if (IsKeyPressed(KEY_ONE)) { _gol.Generate(); }
-	if (IsKeyPressed(KEY_TWO)) { _gol.Generate(_gol.R_PENTONIMO); }
-	if (IsKeyPressed(KEY_THREE)) { _gol.Generate(_gol.GOSPER_GLIDING_GUN); }
+	_helpMenu.Update();
+
+	if (!_helpMenu.HelpMenuShown()) {
+		if (IsKeyPressed(KEY_ONE)) { _gol.Generate(); if (_paused) _nextFrame = true; }
+		if (IsKeyPressed(KEY_TWO)) { _gol.Generate(_gol.R_PENTONIMO); if (_paused) _nextFrame = true; }
+		if (IsKeyPressed(KEY_THREE)) { _gol.Generate(_gol.GOSPER_GLIDING_GUN); if (_paused) _nextFrame = true; }
+
+		if (IsKeyPressed(KEY_P)) { // Pause/Unpause
+			if (!_paused) {
+				_paused = true;
+			} else _paused = false;
+		}
+
+		// Draw next frame (only works when paused)
+		if (_paused && IsKeyPressed(KEY_F)) { _nextFrame = true; }
+	}
+
 
 //	if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) { _window.SetTargetFPS(_window.GetFPS() + 1); }
 //	if (IsMouseButtonPressed(MOUSE_BUTTON_RIGHT)) { _window.SetTargetFPS(_window.GetFPS() - 1); }
 }
 
-void Conway::drawFPS() {
-	raylib::DrawText(std::to_string(_window.GetFPS()) + " FPS", 4, 4, 20, BLACK);
-	raylib::DrawText(std::to_string(_window.GetFPS()) + " FPS", 3, 3, 20, WHITE);
+void Conway::drawPauseIcon() {
+	raylib::DrawText(pausedText, 5, _window.GetHeight() - 28, 32, BLACK);
+	raylib::DrawText(pausedText, 3, _window.GetHeight() - 30, 32, WHITE);
 }
 
 void Conway::draw() {
 	ClearBackground(BLACK);
 
 	_grid.Draw();
-	_gol.Draw();
 
-	drawFPS();
+	if (!_paused) {
+		if (_nextFrame) _nextFrame = false; // Set nextFrame to false if it's true already since it's only used when paused
+		_gol.Draw();
+	}
+	else {
+		drawPauseIcon();
+		if (_nextFrame) {
+			_gol.Draw();
+			_nextFrame = false;
+		}
+	}
+
+
+	_helpMenu.Draw();
 }
