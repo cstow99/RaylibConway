@@ -50,8 +50,8 @@ void Conway::update() {
 }
 
 void Conway::drawFPS() {
-	raylib::DrawText(std::to_string(_window.GetFPS()) + " FPS", 6, 6, 32, BLACK);
-	raylib::DrawText(std::to_string(_window.GetFPS()) + " FPS", 3, 3, 32, WHITE);
+	raylib::DrawText(std::to_string(_window.GetFPS()) + " FPS", 4, 4, 20, BLACK);
+	raylib::DrawText(std::to_string(_window.GetFPS()) + " FPS", 3, 3, 20, WHITE);
 }
 
 void Conway::draw() {
