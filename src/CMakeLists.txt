@@ -1,10 +1,12 @@
 set(SRC_CXX_FILES
+	Help.cpp
 	C_Algorithm.cpp
 	Grid.cpp
 	Conway.cpp
 )
 
 set(SRC_HXX_FILES
+	Help.h
 	C_Algorithm.h
 	Grid.h
 	Conway.h
