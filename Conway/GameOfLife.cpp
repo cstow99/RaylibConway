@@ -1,3 +1,8 @@
+/*
+	Original algorithm is from this video:
+	https://youtu.be/E7CxMHsYzSs
+*/
+
 #include "GameOfLife.h"
 #include "raylib-wrapper.h"
 

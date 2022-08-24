@@ -8,7 +8,7 @@ Gui::Gui(Vec2<int> windowSize) : _width(windowSize.GetX()), _height(windowSize.G
 }
 
 void drawTitle() {
-	std::string msg = "Conway's Game of Life\nPorted to Raylib by ViperSLM";
+	std::string msg = "Conway's Game of Life\nPorted to Raylib by Cris S";
 	// Emulating a drop shadow effect
 	raylib::R_DrawText(msg, { 5, 5 }, 20, BLACK);
 	raylib::R_DrawText(msg, { 3, 3 }, 20, RAYWHITE);
@@ -17,5 +17,5 @@ void drawTitle() {
 void Gui::Draw() {
 	drawTitle();
 
-	raylib::R_DrawFPS({ 3,_height - 20 });
+	raylib::R_DrawFPS({ 3,_height - 20 }); // Draw the framerate
 }

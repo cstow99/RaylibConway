@@ -1,3 +1,9 @@
+/*
+	GUI Class
+	
+	Renders the GUI on to the screen
+*/
+
 #ifndef CONWAY_GUI_H
 #define CONWAY_GUI_H
 #include "Vec2.h"

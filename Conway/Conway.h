@@ -1,3 +1,9 @@
+/*
+	Conway class
+	
+	Main application class
+*/
+
 #ifndef CONWAY_MAIN_H
 #define CONWAY_MAIN_H
 #include "raylib-wrapper.h"

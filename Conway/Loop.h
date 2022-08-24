@@ -1,3 +1,9 @@
+/*
+	Loop class
+	
+	Sets up the application loop
+*/
+
 #ifndef CONWAY_LOOP_H
 #define CONWAY_LOOP_H
 #include "raylib-wrapper.h"

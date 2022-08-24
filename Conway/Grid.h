@@ -1,3 +1,9 @@
+/*
+	Grid class
+	
+	Create a grid of cells which then can be used for multiple purposes
+*/
+
 #ifndef CONWAY_GRID_H
 #define CONWAY_GRID_H
 #include "raylib-wrapper.h"
@@ -24,7 +30,7 @@ private:
     };
 
 public:
-    // We haven't made a configuration file yet
+    // No configuration file yet
     /*void LoadConfig() {
         screenPos.SetX(Config::Read("Grid", "x"));
         screenPos.SetY(Config::Read("Grid", "y"));

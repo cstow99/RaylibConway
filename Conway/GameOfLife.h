@@ -1,3 +1,9 @@
+/*
+	GameOfLife class
+	
+	The class where the Conway's Game of Life algorithm is stored
+*/
+
 #ifndef CONWAY_GAMEOFLIFE_H
 #define CONWAY_GAMEOFLIFE_H
 #include "Grid.h"

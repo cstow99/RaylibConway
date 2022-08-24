@@ -34,7 +34,7 @@ void Grid::DrawCell(Vec2<int> pos) const {
     Color cColor = _cells[pos.GetY() * _width + pos.GetX()].GetCellColor();
     Vec2<int> topLeft = _screenPos + _padding + (pos * _cellSize);
 
-    raylib::R_DrawRectangle(topLeft, Vec2{ _cellSize,_cellSize } - _padding, cColor);
+    raylib::R_DrawRectangle(topLeft, Vec2{ _cellSize,_cellSize } - _padding, cColor);	// Draw a representation of the cell
 }
 
 void Grid::SetCenterCell(Color c) {

@@ -1,3 +1,9 @@
+/*
+	KeyboardEvents class
+	
+	Handles the keyboard events (e.g. A key has been pressed, etc.)
+*/
+
 #ifndef CONWAY_EVENTS_H
 #define CONWAY_EVENTS_H
 
